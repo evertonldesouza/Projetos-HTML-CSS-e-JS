@@ -1,0 +1,103 @@
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(90deg, #03572f 24%, #4a5c09 100%); 
+}
+.title {
+    align-self: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.8px;
+}
+
+.container {
+    width: 45%;
+    min-width: 450px;
+    background-color: #c2c1c1;
+    padding: 40px 30px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    margin-bottom: 40px;
+}
+h2 {
+    font-family: monospace;
+    font-size: 35px;
+}
+img{
+    height: 50px;
+    width: 50px;
+}
+.socialmidia {
+    background:lightseagreen;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: absolute;
+    top: 50%;    
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+}
+
+.socialmidia a {
+    list-style: none;
+    font-size: 45px;
+    color: white;
+    display: inline-block;
+    margin: 5px 0;
+    padding: 10px;
+    transform: scale(0.6);
+}
+
+.socialmidia a:hover {
+    transform: translateX(-2px)
+}
+
+  
+footer.fixarRodape{
+    border-top: 1px solid rgb(248, 248, 248);
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+  }
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 45%;
+        min-width: 350px;
+    }
+    .weapons button {
+        font-size: 30px;
+        height: 70px;
+        width: 70px;
+    }
+    .socialmidia {
+        position: absolute;
+        flex-direction: row;
+        top: 95%;
+     
+        border-top-right-radius: 15px;
+        transform: translateY(-50%);
+    }
+    
+}
