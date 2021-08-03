@@ -1,13 +1,13 @@
 
-# First Hiring Coders's Coding Challenge
+# Pedra, Papel e Tesoura
 
 ## Previews
 
-![preview 01](./assets/img/preview1.png)
+![preview 01](./assets/images/preview1.png)
 
-![preview 02](./assets/img/preview2.png)
+![preview 02](./assets/images/preview2.png)
 
-![preview 03](./assets/img/preview3.png)
+
 
 # Tecnologias
 
@@ -15,4 +15,3 @@
 - CSS3
 - Javascript
 
-Acesse o site [aqui](https://tiotomstore.netlify.app/)
