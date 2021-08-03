@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./assets/img/TIOTOM_store.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>TIOTOM Store</title>
+</head>
+<body>
+    <main>
+        <section class="flex-center">
+            <img class="bf-logo" src="./assets/img/final.png" width="100%" alt="Black Friday Logo">
+        </section>
+
+        <section class="flex-center flex-column text-n-input">
+            <h2><span class="black-friday-text">BLACK FRIDAY É NA</span><br /> <span class="tiotom-store-text">TIOTOM STORE</span></h2>
+            <p>PRODUTOS EM OFERTA COM DESCONTOS <br />DE ATÉ <span class="discount-text">80%</span> EM TODA A LOJA</p>
+            <h3 class="CTA-text">SE INSCREVA NA NOSSA <span class="newsletter-text">NEWSLETTER</span> <br />E RECEBA UMA NOTIFICAÇÃO ASSIM QUE AS PROMOÇÕES COMEÇAREM</h3>
+            <div class="input-wrapper">
+                <input id="emailInput" type="email" placeholder="Digite seu melhor E-mail...">
+                <button id="subscribeBtn">INSCREVER</button>
+            </div>
+            <p id="mesage-display"></p>
+            <a href="javascript:void(0);" rel="noopener noreferrer">SEGUIR PARA A LOJA</a>
+        </section>
+
+        <section id="modal" class="flex-center">
+            <div class="modal-body">
+                <div class="modal-content">
+                    <h2>INSCRIÇÃO CONCLUÍDA!</h2>
+                    <p><span>Parabéns</span>, sua inscrição em nossa Newsletter foi concluída com sucesso, e assim que nossas
+                        promoções de <span>BLACK FRIDAY</span> estiverem em vigor você receberá uma mensagem no E-mail cadastrado!
+                    </p>
+                    <button id="closeBtn">&times;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./assets/js/functions.js"></script>
+</body>
+</html>

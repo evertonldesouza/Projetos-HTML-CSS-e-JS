@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-image: url('/assets/img/wall.png');
+}
+
+main {
+    max-width: 1366px;
+    margin-inline: auto;
+}
+
+body, textarea, button, input {
+    font-family: 'Montserrat', sans-serif;;
+}
+
+body {
+    background-color: rgba(0, 0, 0, .9);
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.bf-logo {
+    animation: bounce 8s infinite forwards;
+}
+
+.text-n-input h2 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+    margin-block: 10px;
+}
+
+.black-friday-text {
+    text-shadow: 1px 0px 2px #e3891c, 0px 1px 2px #e3891c, -1px 0px 2px #e3891c, 0px -1px 2px #e3891c;
+}
+
+.tiotom-store-text {
+    font-size: 62px;
+    color: #e3891c;
+    text-shadow: 2px 2px 2px #fafafa;
+}
+
+.text-n-input p {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-block: 10px;
+}
+
+.discount-text {
+    color: #e3891c;
+    text-shadow: 1px 0px 2px #fafafa;
+}
+
+.CTA-text {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 200;
+    margin-top: 20px;
+}
+
+.newsletter-text {
+    color:rgb(214, 214, 214);
+    text-shadow: 2px 2px 2px #fdfdfd;
+}
+
+.input-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+    margin-block: 10px;
+}
+
+.input-wrapper input, .input-wrapper button {
+    outline: none;
+    border: 0;
+    padding: 15px;
+}
+
+.input-wrapper input {
+    flex: 1;
+}
+
+.input-wrapper button {
+    width: 30%;
+    font-weight: 700;
+    background-color: #f00;
+    color: #fff;
+    cursor: pointer;
+}
+
+.input-wrapper button:hover {
+    filter: brightness(.9);
+}
+
+#mesage-display {
+    font-size: 14px;
+    color: #f00;
+    height: 10px;
+    margin-top: -6px;
+}
+
+.text-n-input a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #e3891c;
+    margin-block: 20px;
+    transition: transform ease-in .3s;
+}
+
+.text-n-input a:hover {
+    transform: scale(1.2);
+}
+
+#modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(20px);
+    transition: transform ease .5s;
+}
+
+.modal-body {
+    width: 100%;
+    max-width: 480px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(45deg,rgba(255, 255, 255, 0.8), rgba(197, 194, 194, 0.8)), url('/img/final.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #e3891c;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.modal-content p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+.modal-content p span {
+    color: #e3891c;
+}
+
+.modal-content button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    font-size: 24px;
+    background-color: #f00;
+    color: rgb(252, 252, 252);
+    border: none;
+    cursor: pointer;
+}
+
+@media screen AND (min-width: 721px) {
+    html, body, main {
+        width: 100%;
+        height: 100%;
+    }
+    
+}
+
+@media screen AND (max-width: 720px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .text-n-input h2 {
+        font-size: 30px;
+    }
+
+    .zao-store-text {
+        font-size: 55px;
+    }
+
+    .input-wrapper {
+        max-width: 350px;
+    }
+        
+    .input-wrapper input, .input-wrapper button {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(-20px); }
+    50% { transform: translateY(20px); }
+    100% { transform: translateY(-20px); }
+}
