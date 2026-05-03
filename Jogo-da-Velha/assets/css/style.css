@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+:root {
+    --bg-main: #18122B;
+    --bg-panel: #443C68;
+    --bg-panel-hover: #5a5283;
+    
+    --text-main: #ffffff;
+    
+    --color-x: #d4beffca;
+    --color-o: #70C7C6;
+    --color-cpu: #c77097;
+    
+    --glow-shadow: rgba(132, 124, 152, 0.744);
+    --glow-o-shadow: rgba(81, 198, 204, 0.5);
+    --glow-win: #70C7C6;
+    --bg-win: #3C837E;
+    
+    --shadow-base: rgba(0, 0, 0, 0.35);
+    --shadow-panel: rgba(78, 67, 137, 0.6);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-variant-caps: small-caps;
+    min-height: 100%;
+    background: transparent;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-variant-caps: small-caps;
+    color: var(--text-main);
+    text-shadow: 0px 0px 20px var(--glow-shadow);
+}
+
+.container {
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px; 
+    width: 100%;
+}
+
+#jogoDaVelha {
+    width: 350px; 
+    height: 350px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.case {
+    border-radius: 10px;
+    border: none;
+    box-shadow: var(--shadow-base) 0px 0px 15px;
+    background-color: var(--bg-main);
+    transition: background-color 0.4s ease;    
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: relative; 
+    cursor: pointer;
+}
+
+.case:hover {
+    background-color: var(--bg-panel);
+}
+
+
+.case.x::before,
+.case.x::after {
+    content: '';
+    position: absolute;
+    background-color: var(--color-x); 
+    border-radius: 5px;
+    width: 80%;
+    height: 15%;
+    box-shadow: 0px 0px 15px rgba(169, 169, 169, 0.692);
+    animation: drawX 0.3s ease-out forwards;
+}
+
+.case.x::before { transform: rotate(45deg); }
+.case.x::after { transform: rotate(-45deg); animation-delay: 0.1s; }
+
+.case.o::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 65%;
+    height: 65%;
+    border: 15px solid var(--color-o); 
+    filter: drop-shadow(0 0 10px var(--color-o));
+    animation: drawO 0.3s ease-out forwards;
+}
+
+@keyframes drawX {
+    from { width: 0%; }
+    to { width: 80%; }
+}
+
+@keyframes drawO {
+    from { width: 0%; height: 0%; opacity: 0; }
+    to { width: 65%; height: 65%; opacity: 1; }
+}
+
+
+.case.winning-square {
+  background-color: var(--bg-win); 
+  box-shadow: 0 0 20px var(--glow-win);
+  transform: scale(1.05);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+
+.result {
+    display: none;
+    position: absolute; 
+    top: 80px; 
+    z-index: 100;
+    background-color: var(--bg-main); 
+    padding: 0 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--color-o);
+    text-shadow: 0px 0px 15px var(--glow-o-shadow);
+}
+
+.result.win-message {
+  animation: popIn 0.4s ease-out forwards;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+.scoreboard {
+    background-color: var(--bg-panel);
+    color: var(--text-main);
+    border-radius: 10px;
+    box-shadow: var(--shadow-panel) 0px 5px 15px;
+    padding: 15px;
+    margin: auto;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2 { font-size: 24px; margin: 0; text-shadow: 0px 0px 20px var(--glow-shadow); }
+h3 { font-size: 18px; text-shadow: 0px 0px 20px var(--glow-shadow); }
+
+.scores {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.player1-score, .player2-score {
+    display: flex;
+    width: 80%;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-base) 0px 0px 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; 
+}
+
+.player1-score.turn-active,
+.player2-score.turn-active {
+  background-color: var(--bg-panel-hover); 
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); 
+  transform: scale(1.03); 
+}
+
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.options input[type="radio"] { display: none; }
+
+.croix-label {
+    width: 55px; height: 55px;
+    background-image: url('../img/cross-icon-remove.png');
+    background-size: contain;
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.circle-label {
+    width: 40px; height: 40px;
+    background-image: url('../img/contour-de-cercle-de-petite-taille.png');
+    background-size: contain;
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.croix-label:hover, .circle-label:hover { transform: scale(1.5); }
+.croix-label-active { background-image: url('../img/croix-rouge.png'); }
+.circle-label-active { background-image: url('../img/cercle-vert.png'); }
+.options label { display: flex; }
+
+.retry, .vsCpu { text-align: center; margin-top: 30px; }
+
+.retry button, .vsCpu button {
+    font-variant-caps: small-caps;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-shadow: 0px 0px 10px var(--glow-o-shadow);
+    box-shadow: var(--shadow-base) 0px 0px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.retry button:hover { background-color: var(--color-o); }
+
+.vsCpu button.cpu-active {
+    background-color: var(--color-cpu); 
+    box-shadow: 0 0 15px var(--color-cpu); 
+}
+
+.options.disabled,
+.vsCpu button.disabled {
+  opacity: 0.5; 
+  pointer-events: none; 
+}

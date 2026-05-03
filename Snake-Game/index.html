@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<title>Jogo da Cobrinha</title>
+		<link rel="shortcut icon" href="../../assets/img/jogoDaCobra.svg" type="image/svg+xml">
+	</head>
+	<body>
+
+
+		<div class="container">
+			<div class="tabl">
+				<div id="score"></div>
+				<div id="food-eaten"></div>
+			</div>
+			<div id="game-board"></div>
+		</div>
+
+		<div id="modal">
+			<div id="modal-content">
+				<h1>Jogo da Cobrinha</h1>
+				<p>Use Z, Q, S, D ou as setas para mover no computador</p>
+				<p>Use os botões na tela para mover no celular</p>
+				<button id="startButton">
+					<i class="fa-solid fa-play fa-shake"></i>
+				</button>
+			</div>
+
+			<div id="message">
+				<p>Fim de Jogo</p>
+				<button id="restartButton">
+					<i class="fa-solid fa-rotate-right fa-spin"></i>
+				</button>
+				<div id="scores">
+					<i class="fa-solid fa-trophy fa-bounce"></i>
+					<h2>Melhores Pontuações</h2>
+					<ul id="scores-list"></ul>
+				</div>
+			</div>
+			<div id="pause-message">
+				<p>Pausado</p>
+				<i class="fa-solid fa-pause fa-beat"></i>
+      		</div>
+		</div>
+
+		<div id="controls">
+			<div class="upDown">
+				<button id="upButton">
+					<i class="fas fa-arrow-up"></i>
+				</button>
+				<button id="downButton">
+					<i class="fas fa-arrow-down"></i>
+				</button>
+			</div>
+			<div class="leftRight">
+				<button id="leftButton">
+					<i class="fas fa-arrow-left"></i>
+				</button>
+				<button id="rightButton">
+					<i class="fas fa-arrow-right"></i>
+				</button>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>

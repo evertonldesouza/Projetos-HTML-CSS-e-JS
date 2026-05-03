@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Handjet&family=Inclusive+Sans&display=swap");
+
+
+:root {
+  --bg-main: #303030;
+  --bg-modal: rgba(0, 0, 0, 0.8);
+  
+  --color-snake: #a0c431;
+  --color-apple: #77b255;
+  --color-trophy: #c4a931;
+  --color-danger: #c43131;
+  
+  --text-main: #ffffff;
+  --shadow-dark: #000000;
+  --shadow-light: #030303;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: "Handjet", cursive;
+  color: var(--color-snake);
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 600px;
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  box-shadow: 0 0 20px -5px var(--shadow-dark);
+}
+
+#game-board {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.snake-head {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-image: url("images/snake-head.svg");
+  scale: 1.5;
+  transition: transform 0.2s ease-in-out;
+  z-index: 10;
+}
+
+.snake-body {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  box-shadow: 0 0 20px -5px var(--shadow-dark);
+  background-color: var(--color-snake);
+  border-radius: 50%;
+}
+
+.food {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-image: url("images/apple.svg");
+  scale: 1.25;
+  z-index: 5;
+}
+
+.mouse {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-image: url("images/mouse.svg");
+  scale: 1.25;
+  z-index: 5;
+}
+
+.tabl {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+}
+
+#food-eaten {
+  display: flex;
+  align-items: center;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-apple);
+}
+
+#food-eaten img {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+#score {
+  display: flex;
+  align-items: center;
+  font-family: "Inclusive Sans", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--color-trophy);
+}
+
+#score img {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+#modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--bg-modal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+#modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-content h1 {
+  font-size: 5rem;
+  font-weight: 500;
+  text-shadow: 0 0 5px var(--shadow-light);
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+#modal-content p {
+  font-size: 2rem;
+  font-weight: 500;
+  text-shadow: 0 0 5px var(--shadow-light);
+  margin-bottom: 20px;
+}
+
+#startButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#startButton i {
+  font-size: 3rem;
+  color: var(--text-main);
+  transition: color 0.2s ease-in-out;
+}
+
+#startButton i:hover {
+  color: var(--color-snake);
+  text-shadow: 0 0 20px var(--color-apple);
+}
+
+#message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#message p {
+  font-size: 4rem;
+  color: var(--color-danger);
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px var(--shadow-light);
+}
+
+#scores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border-radius: 15px;
+  background-color: var(--bg-main);
+  box-shadow: 0 0 20px -5px var(--shadow-dark);
+  border: 2px solid var(--color-trophy);
+}
+
+#scores i {
+  font-size: 2rem;
+  color: var(--color-trophy);
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px var(--shadow-light);
+}
+
+#scores h2 {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: var(--color-trophy);
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px var(--shadow-light);
+}
+
+#scores ul {
+  list-style: none;
+}
+
+#scores ul li {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-apple);
+  margin-bottom: 10px;
+  text-shadow: 0 0 5px var(--shadow-light);
+}
+
+#restartButton {
+  font-family: "Inclusive Sans", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  background-color: var(--color-danger);
+  box-shadow: 0 0 20px -1px var(--shadow-dark);
+  border: none;
+  border-radius: 50%;
+  margin-bottom: 30px;
+  padding: 10px;
+  font-size: 2rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+#restartButton:hover {
+  box-shadow: 0 0 20px 5px var(--color-danger);
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 650px;
+    height: 550px;
+  }
+
+  .tabl {
+    top: -35px;
+    width: 450px;
+  }
+
+  #score,
+  #food-eaten,
+  #modal-content p,
+  #scores i,
+  #restartButton {
+    font-size: 1.5rem;
+  }
+
+  #score img,
+  #food-eaten img {
+    width: 25px;
+    height: 25px;
+    margin-right: 15px;
+  }
+
+  #modal-content h1 {
+    font-size: 3rem;
+  }
+
+  #message p {
+    font-size: 3rem;
+  }
+
+  #scores h2 {
+    font-size: 2rem;
+  }
+
+  #scores ul li {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 100%;
+    height: calc(100vw - 60px);
+  }
+
+  .tabl {
+    top: -28px;
+    width: 250px;
+  }
+
+  .snake-head {
+    scale: 1.5;
+    width: 20px;
+    height: 20px;
+  }
+
+  .food,
+  .mouse {
+    scale: 1;
+  }
+
+  .snake-body {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+  }
+
+  #score,
+  #food-eaten,
+  #modal-content p,
+  #scores i,
+  #restartButton {
+    font-size: 1.25rem;
+  }
+
+  #score img,
+  #food-eaten img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+
+  #modal-content h1 {
+    font-size: 2rem;
+  }
+
+  #message p {
+    font-size: 2rem;
+  }
+
+  #scores h2 {
+    font-size: 1.5rem;
+  }
+
+  #scores ul li {
+    font-size: 1rem;
+  }
+}
+
+#controls {
+  display: none;
+}
+#pause-message {
+  display: none; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+}
+
+#pause-message p {
+  font-size: 4rem;
+  font-weight: 500;
+  text-shadow: 0 0 5px var(--shadow-light);
+  margin-bottom: 20px;
+}
+
+#pause-message i {
+  font-size: 3rem;
+  color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+  #controls {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+
+  .upDown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .leftRight {
+    flex: 1;
+  }
+
+  .upDown button,
+  .leftRight button {
+    background-color: transparent;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+  }
+
+  .upDown button i,
+  .leftRight button i {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    transition: color 0.2s ease-in-out;
+  }
+
+  .upDown button i:hover,
+  .leftRight button i:hover {
+    color: var(--color-snake);
+    text-shadow: 0 0 20px var(--color-apple);
+  }
+}

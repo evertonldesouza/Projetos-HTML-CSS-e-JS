@@ -1,0 +1,111 @@
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    #jogoDaVelha {
+        height: 380px; 
+        width: 380px;
+    }
+    .game-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .case {
+        font-size: 50px;
+    }
+
+    .scoreboard {
+        width: 300px;
+        height: 350px;
+    }
+
+    .scoreboard h2 {
+        font-size: 20px;
+    }
+
+    .scoreboard .scores {
+        font-size: 15px;
+    }
+
+    .scoreboard .player1-score,
+    .scoreboard .player2-score {
+        width: 90%;
+    }
+
+    .croix-label {
+        width: 40px;
+        height: 40px;
+    }
+
+    .circle-label {
+        width: 30px;
+        height: 30px;
+    }
+
+    .retry, .vsCpu {
+        margin-top: 10px;
+    }
+
+    .retry button, .vsCpu button {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .game-container {
+        grid-template-columns: 1fr;
+    }
+
+    #jogoDaVelha {
+        height: 250px;
+        width: 250px;
+    }
+
+    .case {
+        font-size: 40px;
+    }
+
+    .scoreboard {
+        width: 250px;
+        height: 300px;
+    }
+
+    .scoreboard h2 {
+        font-size: 15px;
+    }
+
+    .scoreboard .scores {
+        font-size: 10px;
+    }
+
+    .scoreboard .player1-score,
+    .scoreboard .player2-score {
+        width: 90%;
+    }
+
+    .croix-label {
+        width: 30px;
+        height: 30px;
+    }
+
+    .circle-label {
+        width: 20px;
+        height: 20px;
+    }
+
+    .retry, .vsCpu {
+        margin-top: 10px;
+    }
+
+    .retry button, .vsCpu button {
+        font-size: 10px;
+    }
+
+    .result {
+        font-size: 25px;
+    }
+}

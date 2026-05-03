@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./assets/css/style.css">
+		<link rel="stylesheet" href="./assets/css/responsive.css">
+		<title>Jogo da Velha</title>
+		<link rel="shortcut icon" href="../../img/jogoDaVelha.png" type="image/png">
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>Jogo da Velha</h1>
+			<div class="result"></div>
+			<div class="game-container">
+				<div id="jogoDaVelha">
+					<div onclick="play(this)" class="case" data-index="0"></div>
+					<div onclick="play(this)" class="case" data-index="1"></div>
+					<div onclick="play(this)" class="case" data-index="2"></div>
+					<div onclick="play(this)" class="case" data-index="3"></div>
+					<div onclick="play(this)" class="case" data-index="4"></div>
+					<div onclick="play(this)" class="case" data-index="5"></div>
+					<div onclick="play(this)" class="case" data-index="6"></div>
+					<div onclick="play(this)" class="case" data-index="7"></div>
+					<div onclick="play(this)" class="case" data-index="8"></div>
+				</div>
+				<div class="scoreboard">
+					<h2>Placar</h2>
+					<div class="scores">
+						<div class="player1-score">Jogador X<div id="score-x"></div>
+						</div>
+						<div class="player2-score">Jogador O<div id="score-o"></div>
+						</div>
+					</div>
+					<h3>Escolha seu lado</h3>
+					<div class="options">
+						<div>
+							<input type="radio" name="shape" id="croix" value="x" checked onclick="choice(this)">
+							<label for="croix" class="croix-label"></label>
+						</div>
+						<div>
+							<input type="radio" name="shape" id="circle" value="o" onclick="choice(this)">
+							<label for="circle" class="circle-label"></label>
+						</div>
+					</div>
+					<div class="vsCpu">
+						<button id="cpu-button" onclick="chooseMode()">Jogar contra o PC</button>
+					</div>
+					<div class="retry">
+						<button onclick="playAgain()">Jogar Novamente</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+	<script src="./assets/JS/script.js"></script>
+
+</html>

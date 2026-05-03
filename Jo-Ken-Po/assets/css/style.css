@@ -1,0 +1,229 @@
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --bg-page: #1e1e1e;
+    --bg-container: #ffffff;
+    --color-user: #478df7;
+    --color-computer: #d32f2f;
+    --color-inactive: rgba(0, 0, 0, 0.3);
+    --shadow-card: rgba(0, 0, 0, 0.3);
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e1e; 
+    margin: 0;
+}
+
+.title {
+    align-self: center;
+    color: var(--bg-container);
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.8px;
+}
+
+.container {
+    width: 95%; 
+    max-width: 450px; 
+    background-color: var(--bg-container);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px var(--shadow-card);
+  
+}
+
+.score {
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.weapons {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px; 
+}
+
+.weapons button {
+    background-color: var(--color-user);
+    color: var(--bg-container);
+    border: none;
+    font-size: 30px;
+    height: 75px;    
+    width: 75px;     
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.weapons button:hover {
+    transform: translateY(-3px);
+}
+
+.weapons button.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--color-user);
+    border: 2px solid var(--bg-container);
+}
+
+.weapons button.computer-choice {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--color-computer);
+    border: 2px solid var(--bg-container);
+}
+
+.weapons button.inactive {
+    opacity: 0.4;
+    transform: scale(0.9);
+}
+
+.details {
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+.details p {
+    min-height: 1.5em; 
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.score, .details {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+#result {
+    width: 180px;
+   border-radius: 5px;
+   padding: 10px 0;
+   margin: 20px auto;
+   font-weight: 600;
+   letter-spacing: 0.7px;
+   transition: background-color 0.3s ease, color 0.3s ease;
+   min-height: 38px; 
+   box-sizing: border-box; 
+}
+
+.socialmidia {
+    background: var(--color-user);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    position: absolute;
+    top: 50%;    
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.socialmidia a {
+    list-style: none;
+    font-size: 45px;
+    color: var(--bg-container);
+    display: inline-block;
+    margin: 5px 0;
+    padding: 10px;
+    transform: scale(0.6);
+}
+
+.socialmidia a:hover {
+    transform: translateX(-2px)
+}
+
+.arena {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px 0 40px 0;
+    height: 150px; 
+}
+
+.hand {
+    font-size: 80px;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.hand i {
+    display: inline-block;
+    filter: drop-shadow(0 15px 10px rgba(0, 0, 0, 0.4)); 
+    animation: floating 3s ease-in-out infinite; 
+}
+
+.user-hand { color: var(--color-user); }
+.computer-hand { 
+    color: var(--color-computer); 
+    transform: scaleX(-1); 
+}
+
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.shake-user { animation: shakeUser 0.4s ease 3 !important; }
+.shake-computer { animation: shakeComputer 0.4s ease 3 !important; }
+
+@keyframes shakeUser {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(-10deg); }
+}
+
+@keyframes shakeComputer {
+    0%, 100% { transform: scaleX(-1) translateY(0) rotate(0deg); }
+    50% { transform: scaleX(-1) translateY(-30px) rotate(-10deg); }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 45%;
+        min-width: 350px;
+    }
+    .weapons button {
+        font-size: 30px;
+        height: 70px;
+        width: 70px;
+    }
+    .socialmidia {
+        position: absolute;
+        flex-direction: row;
+        top: 95%;
+     
+        border-top-right-radius: 15px;
+        transform: translateY(-50%);
+    }
+    
+}
+
+#result.ganhou {
+  background-color: var(--color-win);
+  color: var(--color-text-win);
+}
+
+#result.perdeu {
+  background-color: #ffdde0;
+  color: #d32f2f;
+}
+
+#result.empatou {
+  background-color: #e5e5e5;
+  color: #808080;
+}
